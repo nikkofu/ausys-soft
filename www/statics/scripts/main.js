@@ -98,8 +98,12 @@
             if ($('.navbar-collapse-clone').length) {
                 var scrollOptions = $('.navbar-collapse-clone').attr('data-scroll-options') || '{ "theme": "light" }';
                 if (typeof (scrollOptions) !== 'undefined' && scrollOptions !== null) {
-                    scrollOptions = $.parseJSON(scrollOptions);
-                    $('.navbar-collapse-clone').mCustomScrollbar(scrollOptions);
+                    try {
+                        scrollOptions = $.parseJSON(scrollOptions);
+                        $('.navbar-collapse-clone').mCustomScrollbar(scrollOptions);
+                    } catch (error) {
+                        console.error('Error parsing scroll options:', error);
+                    }
                 }
             }
         }
@@ -896,7 +900,12 @@
                 if (typeof $.fn.justifiedGallery !== 'undefined') {
                     if (typeof (justifiedOptions) !== 'undefined' && justifiedOptions !== null) {
                         _this.imagesLoaded(function () {
-                            justifiedOptions = $.parseJSON(justifiedOptions);
+                            try {
+                                justifiedOptions = $.parseJSON(justifiedOptions);
+                            } catch (error) {
+                                console.error('Error parsing justified gallery options:', error);
+                                return;
+                            }
                             _this.justifiedGallery(justifiedOptions);
                         });
                     }
@@ -1970,10 +1979,14 @@
                 _this.html(outputHTML);
                 if (typeof (slider) !== 'undefined' && slider !== null) {
                     // Apply swiper
-                    var sliderOptions = $.parseJSON(slider);
-                    var swiperObj = instagramWrapperItem.parentElement;
-                    if (typeof Swiper === 'function') {
-                        new Swiper(swiperObj, sliderOptions);
+                    try {
+                        var sliderOptions = $.parseJSON(slider);
+                        var swiperObj = instagramWrapperItem.parentElement;
+                        if (typeof Swiper === 'function') {
+                            new Swiper(swiperObj, sliderOptions);
+                        }
+                    } catch (error) {
+                        console.error('Error parsing Instagram slider options:', error);
                     }
                 } else {
                     // Apply isotope
@@ -2187,6 +2200,8 @@
             } else if (grecaptchav3 != '' && grecaptchav3 != undefined) { // For Version 3
                 grecaptcha.ready(function () {
                     grecaptcha.execute(grecaptchav3, {action: 'submit'}).then(function (token) {
+                    }).catch(function (error) {
+                        console.error('reCaptcha execution failed:', error);
                     });
                 });
             }
@@ -2203,8 +2218,15 @@
                     if (redirectVal != '' && redirectVal != undefined) {
                         window.location.href = redirectVal;
                     } else {
-                        if (typeof (result) !== 'undefined' && result !== null) {
-                            result = $.parseJSON(result);
+                        if (typeof (result) === 'string') {
+                            try {
+                                result = $.parseJSON(result);
+                            } catch (error) {
+                                console.error('Error parsing contact form response:', error);
+                                resultsObj.removeClass('alert-success').addClass('alert-danger').html('Something went wrong. Please try again later.');
+                                resultsObj.removeClass('d-none').fadeIn('slow').delay(4000).fadeOut('slow');
+                                return;
+                            }
                         }
                         formObj.find('input[type=text],input[type=url],input[type=email],input[type=tel],input[type=password],textarea').each(function () {
                             $(this).val('');
@@ -2219,6 +2241,12 @@
                         resultsObj.addClass(result.alert).html(result.message);
                         resultsObj.removeClass('d-none').fadeIn('slow').delay(4000).fadeOut('slow');
                     }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    _this.removeClass('loading');
+                    console.error('Contact form submission failed:', textStatus, errorThrown);
+                    resultsObj.removeClass('alert-success').addClass('alert-danger').html('Unable to send your message right now. Please try again later.');
+                    resultsObj.removeClass('d-none').fadeIn('slow').delay(4000).fadeOut('slow');
                 }
             });
         }
@@ -2608,7 +2636,12 @@
                     sliderOptions = _this.attr('data-slider-options');
             if (typeof (sliderOptions) !== 'undefined' && sliderOptions !== null) {
 
-                sliderOptions = $.parseJSON(sliderOptions);
+                try {
+                    sliderOptions = $.parseJSON(sliderOptions);
+                } catch (error) {
+                    console.error('Error parsing slider options:', error);
+                    return;
+                }
 
                 // If user have provided "data-slide-change-on-click" attribute then below code will execute
                 var changeOnClick = _this.attr('data-slide-change-on-click');
@@ -2672,7 +2705,12 @@
                 // If user have provided "data-thumbs" attribute then below code will execute
                 var dataThumbs = _this.attr('data-thumbs');
                 if (dataThumbs != '' && dataThumbs != undefined && sliderOptions['pagination'] != '' && sliderOptions['pagination'] != undefined) {
-                    dataThumbs = $.parseJSON(dataThumbs);
+                    try {
+                        dataThumbs = $.parseJSON(dataThumbs);
+                    } catch (error) {
+                        console.error('Error parsing thumbs options:', error);
+                        dataThumbs = null;
+                    }
                     if (typeof (dataThumbs) !== 'undefined' && dataThumbs !== null) {
                         sliderOptions['pagination']['renderBullet'] = function (index, className) {
                             return '<span class="' + className + '" style="background-image: url( ' + dataThumbs[index] + ' )"></span>';
@@ -2694,7 +2732,12 @@
                                     let options = element.getAttribute('data-anime');
 
                                     if (typeof (options) !== 'undefined' && options !== null) {
-                                        options = $.parseJSON(options);
+                                        try {
+                                            options = $.parseJSON(options);
+                                        } catch (error) {
+                                            console.error('Error parsing anime options:', error);
+                                            return;
+                                        }
 
                                         if (options.el) {
                                             for (let i = 0; i < element.children.length; i++) {
@@ -2726,7 +2769,12 @@
                                     element.classList.add('appear');
                                     let fancy_options = element.getAttribute('data-fancy-text');
                                     if (typeof (fancy_options) !== 'undefined' && fancy_options !== null) {
-                                        fancy_options = $.parseJSON(fancy_options);
+                                        try {
+                                            fancy_options = $.parseJSON(fancy_options);
+                                        } catch (error) {
+                                            console.error('Error parsing fancy text options:', error);
+                                            return;
+                                        }
                                         let child = element;
 
                                         FancyTextDefault(child, fancy_options);
@@ -2740,7 +2788,12 @@
                                     let options = element.getAttribute('data-anime');
 
                                     if (typeof (options) !== 'undefined' && options !== null) {
-                                        options = $.parseJSON(options);
+                                        try {
+                                            options = $.parseJSON(options);
+                                        } catch (error) {
+                                            console.error('Error parsing anime options:', error);
+                                            return;
+                                        }
 
                                         if (options.el) {
                                             for (let i = 0; i < element.children.length; i++) {
@@ -3194,7 +3247,12 @@
             var particleId = $(particleItem).attr('id');
             var particleItemOptions = $(particleItem).attr('data-particle-options');
             if (particleItemOptions != 'undefined' && typeof particleItemOptions !== typeof undefined) {
-                particleItemOptions = JSON.parse(particleItemOptions);
+                try {
+                    particleItemOptions = JSON.parse(particleItemOptions);
+                } catch (error) {
+                    console.error('Error parsing particle options:', error);
+                    particleItemOptions = particleDefaultOptions;
+                }
             } else {
                 particleItemOptions = particleDefaultOptions;
             }
@@ -3841,7 +3899,12 @@ function initMap() {
 
         // Convert String into the Json
         if (typeof (mapOptions) !== 'undefined' && mapOptions !== null) {
-            mapOptions = $.parseJSON(mapOptions);
+            try {
+                mapOptions = $.parseJSON(mapOptions);
+            } catch (error) {
+                console.error('Error parsing map options:', error);
+                return;
+            }
         }
 
         let lat = mapOptions.lat ? mapOptions.lat : 19.07,
