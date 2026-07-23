@@ -235,33 +235,22 @@
         if (!$(e.target).closest('.navbar-nav').length) {
             if (!$(e.target).closest('.header-language').length) {
                 // Close language menu
-                $('.header-language').trigger('mouseleave');
-                $('.header-language').removeClass('show');
-                $('.header-language').children('.dropdown-menu').removeClass('show');
+                closeHeaderDropdown('.header-language');
             }
             if (!$(e.target).closest('.header-cart').length) {
                 // Close cart
-                $('.header-cart').trigger('mouseleave');
-                $('.header-cart').removeClass('show');
-                $('.header-cart').children('.dropdown-menu').removeClass('show');
+                closeHeaderDropdown('.header-cart');
             }
             // Close all dropdown
             $('.navbar-nav .dropdown').each(function () {
-                var _this = $(this);
-                _this.trigger('mouseleave');
-                _this.removeClass('show');
-                _this.children('.dropdown-menu').removeClass('show');
+                closeHeaderDropdown(this);
             });
         } else if ($(e.target).parents('body').find('.header-language.open').length) {
             // Close language menu
-            $('.header-language').trigger('mouseleave');
-            $('.header-language').removeClass('show');
-            $('.header-language').children('.dropdown-menu').removeClass('show');
+            closeHeaderDropdown('.header-language');
         } else if ($(e.target).parents('body').find('.header-cart.open').length) {
             // Close cart
-            $('.header-cart').trigger('mouseleave');
-            $('.header-cart').removeClass('show');
-            $('.header-cart').children('.dropdown-menu').removeClass('show');
+            closeHeaderDropdown('.header-cart');
         }
         // Close left-modern-header menu
         if (!$(e.target).closest('.left-modern-header').length) {
@@ -568,29 +557,7 @@
     if (typeof imagesLoaded === 'function') {
         $('.portfolio-wrapper, .shop-wrapper').each(function () {
             var _this = $(this);
-            _this.imagesLoaded(function () {
-                _this.removeClass('grid-loading');
-                if (typeof $.fn.isotope === 'function') {
-                    var _thisIsotop = _this.isotope({
-                        layoutMode: 'masonry',
-                        itemSelector: '.grid-item',
-                        percentPosition: true,
-                        stagger: 0,
-                        masonry: {
-                            columnWidth: '.grid-sizer',
-                        }
-                    });
-                }
-                isotopeObjs.push(_this);
-
-                // Filter default on load
-                if (typeof $.fn.isotope === 'function') {
-                    var currentPortfolioActive = $('.portfolio-filter > li.active > a').attr('data-filter');
-                    if (currentPortfolioActive != '' && currentPortfolioActive != undefined) {
-                        _this.isotope({filter: currentPortfolioActive});
-                    }
-                }
-            });
+            loadIsotopeGrid(_this, '.portfolio-filter');
 
             _this.on('arrangeComplete', function () {
                 reInitSkrollr();
@@ -797,26 +764,7 @@
     // Blog isotope filter 
     if (typeof imagesLoaded === 'function') {
         $('.blog-wrapper').each(function () {
-            var _this = $(this);
-            _this.imagesLoaded(function () {
-                _this.removeClass('grid-loading');
-                if (typeof $.fn.isotope === 'function') {
-                    _this.isotope({
-                        layoutMode: 'masonry',
-                        itemSelector: '.grid-item',
-                        percentPosition: true,
-                        stagger: 0,
-                        masonry: {
-                            columnWidth: '.grid-sizer',
-                        }
-                    });
-                }
-                isotopeObjs.push(_this);
-                var currentBlogActive = $('.blog-filter > li.active > a').attr('data-filter');
-                if (currentBlogActive != '' && currentBlogActive != undefined) {
-                    _this.isotope({filter: currentBlogActive});
-                }
-            });
+            loadIsotopeGrid($(this), '.blog-filter');
         });
     }
 
@@ -846,22 +794,7 @@
     // Image gallery isotope filter 
     if (typeof imagesLoaded === 'function') {
         $('.gallery-wrapper').each(function () {
-            var _this = $(this);
-            _this.imagesLoaded(function () {
-                _this.removeClass('grid-loading');
-                if (typeof $.fn.isotope === 'function') {
-                    _this.isotope({
-                        layoutMode: 'masonry',
-                        itemSelector: '.grid-item',
-                        percentPosition: true,
-                        stagger: 0,
-                        masonry: {
-                            columnWidth: '.grid-sizer',
-                        }
-                    });
-                }
-                isotopeObjs.push(_this);
-            });
+            loadIsotopeGrid($(this));
         });
     }
 
@@ -1153,15 +1086,7 @@
 
     // Team style 01
     function setSpaceInTeamStyle() {
-        $('.team-style-01').each(function () {
-            let _this = $(this),
-                    figure = _this.find('figure'),
-                    figcaption = _this.find('figcaption');
-
-            setTimeout(function () {
-                figure.css({'padding-bottom': figcaption.outerHeight()});
-            }, 200);
-        });
+        setFigurePaddingFromCaption('.team-style-01', 200);
     }
 
     /* ===================================
@@ -1170,15 +1095,7 @@
 
     // Interactive banner style 02
     function setSpaceInInteractiveBannerStyle() {
-        $('.interactive-banner-style-02').each(function () {
-            let _this = $(this),
-                    figure = _this.find('figure'),
-                    figcaption = _this.find('figcaption');
-
-            setTimeout(function () {
-                figure.css({'padding-bottom': figcaption.outerHeight()});
-            }, 500);
-        });
+        setFigurePaddingFromCaption('.interactive-banner-style-02', 500);
     }
 
     /* ===================================
@@ -1979,17 +1896,7 @@
                     // Apply isotope
                     _this.imagesLoaded(function () {
                         _this.removeClass('grid-loading');
-                        if (typeof $.fn.isotope === 'function') {
-                            _this.isotope({
-                                layoutMode: 'masonry',
-                                itemSelector: '.grid-item',
-                                percentPosition: true,
-                                stagger: 0,
-                                masonry: {
-                                    columnWidth: '.grid-sizer',
-                                }
-                            });
-                        }
+                        applyMasonryIsotope(_this);
                         isotopeObjs.push(_this);
                     });
                 }
@@ -2508,6 +2415,60 @@
     /* ===================================
      Utility functions start
      ====================================== */
+
+    // Apply the shared masonry isotope layout to a grid wrapper
+    function applyMasonryIsotope($grid) {
+        if (typeof $.fn.isotope !== 'function') {
+            return null;
+        }
+        return $grid.isotope({
+            layoutMode: 'masonry',
+            itemSelector: '.grid-item',
+            percentPosition: true,
+            stagger: 0,
+            masonry: {
+                columnWidth: '.grid-sizer',
+            }
+        });
+    }
+
+    // Initialise an isotope grid once its images are loaded, applying an optional active filter
+    function loadIsotopeGrid($grid, filterSelector) {
+        if (typeof imagesLoaded !== 'function') {
+            return;
+        }
+        $grid.imagesLoaded(function () {
+            $grid.removeClass('grid-loading');
+            applyMasonryIsotope($grid);
+            isotopeObjs.push($grid);
+            if (filterSelector && typeof $.fn.isotope === 'function') {
+                var currentActive = $(filterSelector + ' > li.active > a').attr('data-filter');
+                if (currentActive != '' && currentActive != undefined) {
+                    $grid.isotope({filter: currentActive});
+                }
+            }
+        });
+    }
+
+    // Close a header dropdown (language, cart, etc.)
+    function closeHeaderDropdown(selector) {
+        var $el = $(selector);
+        $el.trigger('mouseleave');
+        $el.removeClass('show');
+        $el.children('.dropdown-menu').removeClass('show');
+    }
+
+    // Pad a figure's bottom to accommodate its overlapping figcaption
+    function setFigurePaddingFromCaption(selector, delay) {
+        $(selector).each(function () {
+            var _this = $(this),
+                    figure = _this.find('figure'),
+                    figcaption = _this.find('figcaption');
+            setTimeout(function () {
+                figure.css({'padding-bottom': figcaption.outerHeight()});
+            }, delay);
+        });
+    }
 
     // Check formatted number
     function pad(d) {
