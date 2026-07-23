@@ -1920,7 +1920,7 @@
      ====================================== */
     var instagramWrapperItems = document.querySelectorAll('.instafeed-wrapper');
     instagramWrapperItems.forEach(function (instagramWrapperItem) {
-        var token = 'IGQWRhV045dnc1cDhvdmxyMnlXMTdjZAU5LVERkREZAPemRreWZABNWpkdzhTVDNxU1pUQVFJN3JpbjFVVk9EYng1S25sWExfanFlZA2k2WnNxTTFKNXoxZA0J0ZAWRXbk0zTHViRHBvVEI4bjJOa1labWxJUEhVaFIycncZD',
+        var token = '',
                 _this = $(instagramWrapperItem),
                 token = _this.attr('data-token') || token,
                 total = _this.attr('data-total') || '6', // how much photos do you want to get
