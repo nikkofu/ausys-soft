@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>关于我们｜澳盛沅实（香港）实业有限公司</title>
+    <meta
+      name="description"
+      content="澳盛沅实（香港）实业有限公司总部位于香港屯门，专注企业数字化转型、智能运维、云端服务与智慧零售解决方案。"
+    />
+    <link rel="shortcut icon" href="./statics/images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="stylesheet" href="./statics/styles/vendors.min.css?v=202610081950" />
+    <link rel="stylesheet" href="./statics/styles/icon.min.css?v=202610081950" />
+    <link rel="stylesheet" href="./statics/styles/style.min.css?v=202610081950" />
+    <link rel="stylesheet" href="./statics/styles/responsive.min.css?v=202610081950" />
+    <link rel="stylesheet" href="./statics/styles/it-business.css?v=202610081950" />
+    <style>
+      :root {
+        --about-ink: #252840;
+        --about-blue: #074eb9;
+        --about-mist: #f3f6fb;
+      }
+      html { scroll-behavior: smooth; }
+      body { color: #626775; }
+      .about-page h1, .about-page h2, .about-page h3, .about-page h4 { color: var(--about-ink); }
+      .about-page section[id] { scroll-margin-top: 96px; }
+      .about-header { position: sticky; top: 0; z-index: 100; background: #fff; box-shadow: 0 4px 24px rgba(25, 35, 58, .06); }
+      .about-header .navbar { min-height: 82px; }
+      .about-header .navbar-brand img { max-height: 35px; width: auto; }
+      .about-header .navbar .navbar-nav .nav-link { color: var(--about-ink); }
+      .about-header .navbar-toggler { border: 0; }
+      .about-header .navbar-toggler-line { background-color: var(--about-ink); }
+      .about-header .header-button .btn { color: var(--about-ink); border-color: #dbe1ea; }
+      .about-hero {
+        position: relative;
+        min-height: 510px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: url("https://craftohtml.themezaa.com/images/demo-it-business-about-title-bg.jpg") center / cover no-repeat,
+          url("./statics/images/demo-it-business-about-07.jpg") center / cover no-repeat;
+      }
+      .about-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13, 24, 48, .84), rgba(13, 24, 48, .48) 58%, rgba(13, 24, 48, .22)); }
+      .about-hero .container { position: relative; z-index: 1; padding-top: 66px; padding-bottom: 82px; }
+      .about-hero h1 { max-width: 780px; color: #fff; font-size: clamp(2.7rem, 5.5vw, 4.8rem); line-height: 1.18; }
+      .about-hero h1 span { color: #93c5ff; }
+      .about-hero p { max-width: 710px; color: rgba(255,255,255,.78); font-size: 18px; line-height: 1.8; }
+      .about-hero .eyebrow { color: #fff; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22); }
+      .about-hero .shape-image-animation { position: absolute; bottom: -1px; left: 0; z-index: 1; }
+      .section-kicker { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; padding: 5px 16px; border-radius: 40px; color: var(--about-blue); background: #edf4ff; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+      .section-heading { max-width: 760px; margin: 0 auto 18px; font-size: clamp(2rem, 3.6vw, 3.1rem); line-height: 1.25; font-weight: 700; letter-spacing: -.04em; }
+      .section-lead { max-width: 760px; margin: 0 auto; font-size: 17px; line-height: 1.85; }
+      .about-intro { padding-top: 110px; padding-bottom: 100px; }
+      .about-photo-stack { position: relative; max-width: 520px; padding: 0 55px 58px 0; }
+      .about-photo-stack img { display: block; border-radius: 10px; box-shadow: 0 22px 54px rgba(27, 40, 66, .16); }
+      .about-photo-stack .main-photo { width: 80%; }
+      .about-photo-stack .overlap-photo { position: absolute; right: 0; bottom: 0; width: 58%; border: 8px solid #fff; }
+      .about-location { position: absolute; top: 24px; right: 10px; z-index: 1; padding: 14px 20px; border-radius: 8px; color: #fff; background: var(--about-blue); box-shadow: 0 12px 30px rgba(7,78,185,.25); }
+      .about-location strong { display: block; color: #fff; font-size: 16px; }
+      .about-location span { font-size: 12px; opacity: .8; }
+      .about-copy h2 { margin-bottom: 22px; font-size: clamp(2rem, 3.4vw, 2.8rem); line-height: 1.28; font-weight: 700; letter-spacing: -.04em; }
+      .about-copy p { font-size: 16px; line-height: 1.9; }
+      .about-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 30px; }
+      .about-fact { padding: 18px 15px; border: 1px solid #e7ebf2; border-radius: 8px; background: #fff; }
+      .about-fact strong { display: block; margin-bottom: 4px; color: var(--about-blue); font-size: 27px; line-height: 1.2; font-weight: 800; }
+      .about-fact span { color: #626775; font-size: 13px; line-height: 1.5; }
+      .about-fact strong span, .founder-metric strong span { display: inline; margin: 0; color: inherit; font-size: .68em; vertical-align: super; }
+      .about-capabilities { padding: 100px 0; background: var(--about-mist); }
+      .capability-card { height: 100%; padding: 32px 28px; border: 1px solid #e7ebf2; border-radius: 10px; background: #fff; transition: transform .25s ease, box-shadow .25s ease; }
+      .capability-card:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(25, 45, 82, .1); }
+      .capability-icon { display: grid; width: 56px; height: 56px; place-items: center; margin-bottom: 22px; border-radius: 14px; color: var(--about-blue); background: #edf4ff; font-size: 25px; }
+      .capability-card h3 { margin-bottom: 12px; font-size: 20px; font-weight: 700; }
+      .capability-card p { margin-bottom: 0; line-height: 1.8; }
+      .about-gallery { overflow: hidden; padding: 20px 0 90px; }
+      .about-gallery .gallery-image { width: 100%; aspect-ratio: 1.08 / 1; object-fit: cover; border-radius: 8px; }
+      .about-products { padding: 100px 0; }
+      .product-card { position: relative; height: 100%; overflow: hidden; padding: 34px 30px; border: 1px solid #e7ebf2; border-radius: 10px; background: #fff; }
+      .product-card::after { content: ""; position: absolute; right: -35px; bottom: -55px; width: 140px; height: 140px; border: 1px solid #eaf0f8; border-radius: 50%; box-shadow: 0 0 0 20px #f7f9fc, 0 0 0 40px #fbfcfe; }
+      .product-card h3 { margin: 18px 0 12px; font-size: 21px; font-weight: 700; }
+      .product-card p { line-height: 1.8; }
+      .product-card .product-detail { position: relative; z-index: 1; padding-top: 15px; border-top: 1px solid #e8ecf2; color: var(--about-ink); font-size: 13px; line-height: 1.8; }
+      .product-card .product-detail strong { color: var(--about-blue); }
+      .about-founder { padding: 104px 0; }
+      .founder-panel { position: relative; overflow: hidden; padding: 48px; border-radius: 14px; color: rgba(255,255,255,.75); background: linear-gradient(135deg, #20243c, #123c78); }
+      .founder-panel::after { content: ""; position: absolute; top: -120px; right: -110px; width: 360px; height: 360px; border: 1px solid rgba(255,255,255,.14); border-radius: 50%; box-shadow: 0 0 0 40px rgba(255,255,255,.04), 0 0 0 80px rgba(255,255,255,.03); }
+      .founder-panel h3, .founder-panel h4 { position: relative; z-index: 1; color: #fff; }
+      .founder-panel h3 { font-size: 34px; font-weight: 700; }
+      .founder-panel .founder-name { color: #fff; font-size: 25px; font-weight: 700; }
+      .founder-panel .founder-role { display: block; margin-top: 4px; color: #b8d5ff; font-size: 13px; letter-spacing: .08em; }
+      .founder-panel p { position: relative; z-index: 1; max-width: 650px; line-height: 1.9; }
+      .founder-metrics { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 30px; }
+      .founder-metric { padding: 19px; border: 1px solid rgba(255,255,255,.19); border-radius: 8px; background: rgba(255,255,255,.07); }
+      .founder-metric strong { display: block; color: #fff; font-size: 30px; line-height: 1.1; }
+      .founder-metric span { display: block; margin-top: 8px; color: rgba(255,255,255,.7); font-size: 13px; }
+      .about-cases { padding: 100px 0; background: var(--about-mist); }
+      .case-card { height: 100%; padding: 30px; border-radius: 10px; background: #fff; box-shadow: 0 8px 30px rgba(33, 45, 68, .05); }
+      .case-tag { display: inline-block; margin-bottom: 18px; padding: 5px 12px; border-radius: 30px; color: var(--about-blue); background: #edf4ff; font-size: 12px; font-weight: 700; }
+      .case-card h3 { margin-bottom: 13px; font-size: 21px; font-weight: 700; }
+      .case-card p { line-height: 1.8; }
+      .case-result { margin-top: 22px; padding-top: 18px; border-top: 1px solid #e8ecf2; color: var(--about-ink); font-size: 14px; font-weight: 600; line-height: 1.7; }
+      .case-result strong { color: var(--about-blue); }
+      .about-hongkong { padding: 100px 0; }
+      .vision-card { height: 100%; padding: 26px 22px; border-bottom: 2px solid #e4eaf3; }
+      .vision-card .vision-number { color: #a8c9f6; font-size: 14px; font-weight: 800; letter-spacing: .1em; }
+      .vision-card h3 { margin: 12px 0 10px; font-size: 18px; font-weight: 700; }
+      .vision-card p { margin: 0; font-size: 14px; line-height: 1.8; }
+      .about-cta { padding: 76px 0; color: rgba(255,255,255,.75); background: var(--about-ink); }
+      .about-cta h2 { margin-bottom: 14px; color: #fff; font-size: clamp(1.9rem, 3.5vw, 2.7rem); font-weight: 700; }
+      .about-cta p { margin-bottom: 0; }
+      .about-footer { padding-top: 58px; background: #fff; }
+      .about-footer .footer-brand { max-width: 225px; height: auto; }
+      .about-footer .address { line-height: 1.9; }
+      @media (max-width: 991px) {
+        .about-header .navbar { min-height: 72px; }
+        .about-header .navbar-collapse { padding: 15px 0; }
+        .about-header .header-button { display: none; }
+        .about-intro, .about-capabilities, .about-founder, .about-cases, .about-hongkong { padding-top: 76px; padding-bottom: 76px; }
+        .about-photo-stack { margin: 0 auto 56px; }
+        .founder-panel { padding: 36px 30px; }
+      }
+      @media (max-width: 575px) {
+        .about-hero { min-height: 530px; }
+        .about-hero .container { padding-top: 45px; padding-bottom: 62px; }
+        .about-hero p { font-size: 16px; }
+        .about-facts, .founder-metrics { grid-template-columns: 1fr; }
+        .about-fact { display: flex; align-items: center; gap: 12px; }
+        .about-fact strong { min-width: 76px; margin: 0; }
+        .founder-panel { padding: 30px 23px; }
+      }
+    </style>
+  </head>
+  <body class="about-page" data-mobile-nav-style="full-screen-menu" data-mobile-nav-bg-color="#252840">
+    <header class="about-header site-header no-sticky">
+      <nav class="navbar navbar-expand-lg header-transparent bg-transparent header-reverse glass-effect" data-header-hover="light">
+        <div class="container-fluid px-4 px-xl-5">
+          <a class="navbar-brand" href="index.html" aria-label="澳盛沅实首页">
+            <img class="default-logo" src="./statics/images/logo.png" alt="澳盛沅实（香港）实业有限公司" />
+            <img class="alt-logo" src="./statics/images/logo.png" alt="" />
+            <img class="mobile-logo" src="./statics/images/logo.png" alt="" />
+          </a>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aboutNav" aria-controls="aboutNav" aria-expanded="false" aria-label="展开导航">
+            <span class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="aboutNav">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a href="index.html" class="nav-link">首页</a></li>
+              <li class="nav-item active"><a href="about.html" class="nav-link" aria-current="page">公司介绍</a></li>
+              <li class="nav-item"><a href="services.html" class="nav-link">产品与服务</a></li>
+              <li class="nav-item"><a href="cases.html" class="nav-link">项目案例</a></li>
+              <li class="nav-item"><a href="contact.html" class="nav-link">联络我们</a></li>
+            </ul>
+          </div>
+          <div class="header-button d-none d-lg-flex">
+            <a href="mailto:william_wxl@outlook.com" class="btn btn-large btn-rounded text-transform-none border-1">开启合作 <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="about-hero">
+        <div class="shape-image-animation p-0 w-100 d-none d-md-block">
+          <svg xmlns="http://www.w3.org/2000/svg" width="3000" height="120" viewBox="0 180 2500 200" fill="#fff" aria-hidden="true">
+            <path d="M0 250 C1200 400 1200 50 3000 250 L3000 550 L0 550Z"><animate attributeName="d" dur="6s" values="M0 250 C1200 400 1200 50 3000 250 L3000 550 L0 550Z;M0 250 C400 50 400 400 3000 250 L3000 550 L0 550Z;M0 250 C1200 400 1200 50 3000 250 L3000 550 L0 550Z" repeatCount="indefinite" /></path>
+          </svg>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 col-xl-8">
+              <span class="section-kicker eyebrow"><i class="bi bi-buildings"></i> ABOUT AOSHENG YUANSHI</span>
+              <h1 class="text-white fw-600 ls-minus-2px mb-25px">扎根香港，<span>智见未来。</span></h1>
+              <p class="mb-30px">以香港为市场核心，连接内地技术研发与本地业务需求，为企业数字化转型提供从规划、开发到运维的一站式支持。</p>
+              <a href="#company" class="btn btn-extra-large btn-switch-text btn-gradient-purple-pink btn-rounded me-10px mt-10px"><span><span class="btn-double-text" data-text="认识澳盛沅实">认识澳盛沅实</span><span><i class="fa-solid fa-arrow-down"></i></span></span></a>
+              <a href="#contact" class="btn btn-extra-large btn-switch-text btn-transparent-white-light btn-rounded border-1 mt-10px"><span><span class="btn-double-text" data-text="与我们联系">与我们联系</span><span><i class="fa-regular fa-envelope"></i></span></span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="company" class="about-intro">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-5">
+              <div class="about-photo-stack">
+                <img class="main-photo" src="./statics/images/demo-it-business-about-01.jpg" alt="商务团队交流协作场景" loading="lazy" />
+                <img class="overlap-photo" src="./statics/images/demo-it-business-about-02.jpg" alt="团队共同讨论业务方案" loading="lazy" />
+                <div class="about-location"><strong><i class="bi bi-geo-alt-fill me-1"></i>香港 · 屯门</strong><span>公司总部</span></div>
+              </div>
+            </div>
+            <div class="col-lg-6 offset-lg-1 about-copy">
+              <span class="section-kicker"><i class="bi bi-award"></i> 关于我们</span>
+              <h2>以香港为起点，<br />把技术落到真实业务里。</h2>
+              <p>澳盛沅实（香港）实业有限公司总部位于香港新界屯门，邻近北部都会区与深港科技创新合作圈。我们聚焦企业数字化转型，专注软硬件整合开发、智能运维、智慧零售场景落地及技术咨询。</p>
+              <p>公司以内地上海团队为研发与交付支撑，拥有资深技术人员及十余年行业服务经验，服务过政府、金融、能源、电信等领域的 100 多家企业客户。香港公司已与多家本地企业签署服务合约，业务进入实质落地阶段。</p>
+              <div class="about-facts" aria-label="公司经验与服务规模">
+                <div class="about-fact"><strong>10<span>+</span></strong><span>年行业服务经验</span></div>
+                <div class="about-fact"><strong>100<span>+</span></strong><span>家企业客户</span></div>
+                <div class="about-fact"><strong>30<span>+</span></strong><span>内地技术团队成员</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-gallery" aria-label="团队协作场景">
+        <div class="container-fluid px-4 px-xl-5">
+          <div class="row g-3">
+            <div class="col-6 col-lg"><img class="gallery-image" src="./statics/images/demo-it-business-about-03.jpg" alt="商务团队协作场景" loading="lazy" /></div>
+            <div class="col-6 col-lg"><img class="gallery-image" src="./statics/images/demo-it-business-about-04.jpg" alt="团队讨论与规划场景" loading="lazy" /></div>
+            <div class="col-6 col-lg"><img class="gallery-image" src="./statics/images/demo-it-business-about-05.jpg" alt="技术工作场景" loading="lazy" /></div>
+            <div class="col-6 col-lg"><img class="gallery-image" src="./statics/images/demo-it-business-about-06.jpg" alt="商务协作场景" loading="lazy" /></div>
+            <div class="col-6 col-lg"><img class="gallery-image" src="./statics/images/demo-it-business-about-07.jpg" alt="团队项目交流场景" loading="lazy" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="capabilities" class="about-capabilities">
+        <div class="container">
+          <div class="text-center mb-6">
+            <span class="section-kicker"><i class="bi bi-grid-1x2"></i> 核心能力</span>
+            <h2 class="section-heading">从底层技术到业务场景，<br class="d-none d-md-block" />提供全链路数字化服务。</h2>
+            <p class="section-lead">结合云平台、自动化运维、数据治理及定制开发能力，按企业实际情况设计、建设并持续运营数字化方案。</p>
+          </div>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
+            <div class="col"><article class="capability-card"><span class="capability-icon"><i class="bi bi-cloud-check"></i></span><h3>云端全栈服务</h3><p>涵盖云规划、部署实施、定制开发、数据服务与安全建设，支持企业构建稳健的技术底座。</p></article></div>
+            <div class="col"><article class="capability-card"><span class="capability-icon"><i class="bi bi-gear-wide-connected"></i></span><h3>智慧运维</h3><p>整合配置管理、持续交付、容器编排、监控告警及容灾备份，提升运维效率与系统稳定性。</p></article></div>
+            <div class="col"><article class="capability-card"><span class="capability-icon"><i class="bi bi-database-check"></i></span><h3>数据治理</h3><p>覆盖数据采集、清洗、建模、可视化、资产管理与安全防护，支持数据在业务中持续发挥价值。</p></article></div>
+            <div class="col"><article class="capability-card"><span class="capability-icon"><i class="bi bi-diagram-3"></i></span><h3>场景化解决方案</h3><p>提供系统适配、第三方平台对接及 APP、H5、小程序开发，助力零售、停车等场景落地。</p></article></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="about-products">
+        <div class="container">
+          <div class="text-center mb-6">
+            <span class="section-kicker"><i class="bi bi-box-seam"></i> 软件产品</span>
+            <h2 class="section-heading">围绕真实场景打造可落地的产品。</h2>
+            <p class="section-lead">以自动化运维和智慧零售为重点，结合香港本地环境与支付方式提供产品及场景方案。</p>
+          </div>
+          <div class="row row-cols-1 row-cols-lg-3 g-4">
+            <div class="col"><article class="product-card"><span class="capability-icon"><i class="bi bi-activity"></i></span><h3>ArkOP 自动化运维</h3><p>整合主机批量操作、应用自动发布、实时监控告警及操作日志，覆盖资产管理、部署上线、故障监测与合规追溯。</p><div class="product-detail"><strong>支持私有化部署</strong>，多类服务器统一接入，操作留痕并可导出审计报告。方案可实现运维人力成本降低 40%、故障处理时长减少 35%。</div></article></div>
+            <div class="col"><article class="product-card"><span class="capability-icon"><i class="bi bi-p-square"></i></span><h3>AI 智慧停车系统</h3><p>面向工商大厦、公共停车场及屋邨物业，整合 IoT、车牌识别、数据分析与本地移动支付。</p><div class="product-detail"><strong>支持八达通、转数快及信用卡</strong>，覆盖车位引导、自动计费、无感支付与运营管理；方案可实现人工收费成本降低 40%、场地周转率提升 25%。</div></article></div>
+            <div class="col"><article class="product-card"><span class="capability-icon"><i class="bi bi-bag-heart"></i></span><h3>趣鲜微信商场</h3><p>基于微信生态的 B2C 分销 H5 电商平台，面向零售场景提供从选购到会员运营的完整功能。</p><div class="product-detail">涵盖商品展示、购物车、订单管理、会员体系与拼团营销，支持零售业务数字化运营。</div></article></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="leadership" class="about-founder">
+        <div class="container">
+          <div class="founder-panel">
+            <div class="row align-items-center">
+              <div class="col-lg-7">
+                <span class="section-kicker eyebrow"><i class="bi bi-person-badge"></i> 创始人介绍</span>
+                <h3>经验沉淀，服务每一次技术落地。</h3>
+                <p><span class="founder-name">王晓麟先生</span><span class="founder-role">创始人 / 总经理</span></p>
+                <p>毕业于上海大学计算机科学与技术专业，拥有 20 余年互联网行业经验，长期深耕软硬件开发、IT 运维架构与企业数字化，曾服务网络游戏、互联网金融和跨境电商领域。</p>
+                <p>擅长私有云与容器化平台规划、自动化运维体系建设，以及业务高可用与成本优化；持续探索 AI、大数据和 IoT 在智慧零售及企业数字化中的应用。</p>
+              </div>
+              <div class="col-lg-5">
+                <div class="founder-metrics">
+                  <div class="founder-metric"><strong>20<span>+</span></strong><span>年互联网行业经验</span></div>
+                  <div class="founder-metric"><strong>15<span>+</span></strong><span>年运维与系统架构经验</span></div>
+                  <div class="founder-metric"><strong>40<span>%</span></strong><span>项目案例服务器运营成本降低</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cases" class="about-cases">
+        <div class="container">
+          <div class="text-center mb-6">
+            <span class="section-kicker"><i class="bi bi-briefcase"></i> 项目实践</span>
+            <h2 class="section-heading">让稳定、效率与安全看得见。</h2>
+            <p class="section-lead">团队在金融运维、政务云及数据治理等项目中积累交付经验，以清晰的方案和可衡量的成果回应业务需求。</p>
+          </div>
+          <div class="row row-cols-1 row-cols-lg-3 g-4">
+            <div class="col"><article class="case-card"><span class="case-tag">金融 · 智能运维</span><h3>全国业务统一运维保障</h3><p>通过驻场服务与远程技术支持，基于 EasyOP 建立统一监控和自动化运维，覆盖故障排查、硬件更换及上线保障。</p><div class="case-result">核心系统可用性 <strong>99.99%</strong><br />运维响应效率提升 50%，年均故障停机时长压缩 60%。</div></article></div>
+            <div class="col"><article class="case-card"><span class="case-tag">政务 · 云平台</span><h3>嘉兴市政务云平台</h3><p>以双核心冗余架构构建弹性计算与存储资源池，配合多层级安全防护及现场团队，支持政务系统统一上云。</p><div class="case-result">平台可用性 <strong>≥ 99.95%</strong><br />IT 成本降低 30% 以上，业务上云周期压缩 70% 以上。</div></article></div>
+            <div class="col"><article class="case-card"><span class="case-tag">数据治理 · 可视化</span><h3>多行业数据平台与运维项目</h3><p>项目实践涵盖电子政务外网、数字政府、专利局数字大屏、智慧运维及综合态势可视化等领域。</p><div class="case-result">从数据对接、治理到定制开发与可视化呈现，提供端到端项目交付支持。</div></article></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="hongkong" class="about-hongkong">
+        <div class="container">
+          <div class="text-center mb-5">
+            <span class="section-kicker"><i class="bi bi-buildings"></i> 香港发展展望</span>
+            <h2 class="section-heading">扎根香港，与本地数字未来同行。</h2>
+            <p class="section-lead">以创新科技融入香港发展，依托北部都会区及河套深港科技创新合作区，推动技术、人才与产业协同。</p>
+          </div>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+            <div class="col"><article class="vision-card"><span class="vision-number">01 / 人才</span><h3>创造本地就业</h3><p>计划创造 3–4 个本地就业岗位，与院校及职训机构合作，为青年提供实习与发展机会。</p></article></div>
+            <div class="col"><article class="vision-card"><span class="vision-number">02 / 企业</span><h3>赋能中小企业</h3><p>针对数字化转型需求提供定制 IT 方案，帮助企业降低运维成本、提升营运效率。</p></article></div>
+            <div class="col"><article class="vision-card"><span class="vision-number">03 / 城市</span><h3>共建智慧城市</h3><p>探索智慧停车、智慧物业及智慧建筑方案，以科技支持公共服务数字化改造。</p></article></div>
+            <div class="col"><article class="vision-card"><span class="vision-number">04 / 协同</span><h3>深化深港合作</h3><p>连接香港与内地技术研发、成果转化及产业资源，促进协作与双向发展。</p></article></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="about-cta">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-8 mb-4 mb-lg-0"><span class="text-uppercase fs-12 fw-700 ls-1px text-white opacity-7">LET’S BUILD WHAT’S NEXT</span><h2 class="mt-10px">与澳盛沅实携手，推进数字化转型。</h2><p>欢迎联系团队，讨论您的技术需求与项目计划。</p></div>
+            <div class="col-lg-4 text-lg-end"><a href="mailto:william_wxl@outlook.com" class="btn btn-extra-large btn-switch-text btn-gradient-purple-pink btn-rounded"><span><span class="btn-double-text" data-text="发送业务咨询">发送业务咨询</span><span><i class="fa-regular fa-envelope"></i></span></span></a></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="about-footer footer-light">
+      <div class="container">
+        <div class="row pt-5 pb-4">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <a href="index.html" aria-label="澳盛沅实首页"><img class="footer-brand mb-3" src="./statics/images/logo.png" alt="澳盛沅实（香港）实业有限公司" /></a>
+            <p class="address">澳盛沅实（香港）实业有限公司<br />AOSHENG YUANSHI (HK) LIMITED</p>
+          </div>
+          <div class="col-6 col-lg-2 mb-4 mb-lg-0"><span class="fw-600 d-block text-dark-gray mb-3">快速导航</span><ul><li><a href="index.html">首页</a></li><li><a href="about.html">公司介绍</a></li><li><a href="services.html">产品与服务</a></li><li><a href="cases.html">项目案例</a></li><li><a href="contact.html">联络我们</a></li></ul></div>
+          <div class="col-6 col-lg-2 mb-4 mb-lg-0"><span class="fw-600 d-block text-dark-gray mb-3">核心业务</span><ul><li><a href="services.html#industry-solutions">AI智能体应用实施</a></li><li><a href="services.html#capabilities">办公软件分销</a></li><li><a href="services.html#industry-solutions">软件开发</a></li><li><a href="services.html#operations">运维外包</a></li></ul></div>
+          <div class="col-6 col-lg-4 mb-4 mb-lg-0"><span class="fw-600 d-block text-dark-gray mb-3">联系团队</span><ul><li><a href="mailto:william_wxl@outlook.com">william_wxl@outlook.com</a></li><li><a href="tel:+85246139100">+852 4613 9100</a></li><li>香港新界屯门建发街 4 号 Lane Up 7 楼 112 室</li><li><a href="https://ausys-soft.com" target="_blank" rel="noopener">ausys-soft.com</a></li></ul></div>
+        </div>
+        <div class="row border-top border-color-extra-medium-gray py-3">
+          <div class="col-12 d-flex align-items-center justify-content-between flex-wrap text-lg-start fs-14">
+            <p class="mb-0">© 2026 澳盛沅实 AOSHENG YUANSHI (HK) LIMITED. All rights reserved.</p>
+            <ul class="footer-navbar sm-lh-normal mb-0">
+              <li><a href="index.html" class="nav-link">首页</a></li>
+              <li><a href="about.html" class="nav-link">公司介绍</a></li>
+              <li><a href="services.html" class="nav-link">产品与服务</a></li>
+              <li><a href="cases.html" class="nav-link">项目案例</a></li>
+              <li><a href="contact.html" class="nav-link">联络我们</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="返回顶部"><span class="scroll-text">Top</span><span class="scroll-line"><span class="scroll-point"></span></span></a></div>
+    <script src="./statics/scripts/jquery.js?v=202610081950"></script>
+    <script src="./statics/scripts/vendors.min.js?v=202610081950"></script>
+    <script src="./statics/scripts/main.js?v=202610081950"></script>
+  </body>
+</html>

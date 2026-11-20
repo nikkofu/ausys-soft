@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>项目案例｜澳盛沅实（香港）实业有限公司</title>
+    <meta name="description" content="了解澳盛沅实在金融智能运维、保险集团基础设施交付、政务云、数据治理和可视化等领域的项目案例。" />
+    <link rel="shortcut icon" href="./statics/images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="stylesheet" href="./statics/styles/vendors.min.css?v=202610081950" />
+    <link rel="stylesheet" href="./statics/styles/icon.min.css?v=202610081950" />
+    <link rel="stylesheet" href="./statics/styles/style.min.css?v=202610081950" />
+    <link rel="stylesheet" href="./statics/styles/responsive.min.css?v=202610081950" />
+    <link rel="stylesheet" href="./statics/styles/it-business.css?v=202610081950" />
+    <style>
+      :root { --case-ink: #252840; --case-blue: #074eb9; --case-mist: #f0f2f8; }
+      html { scroll-behavior: smooth; }
+      body { color: #626775; }
+      .cases-page section[id] { scroll-margin-top: 96px; }
+      .cases-header { position: sticky; top: 0; z-index: 100; background: #fff; box-shadow: 0 4px 24px rgba(25,35,58,.06); }
+      .cases-header .navbar { min-height: 82px; }
+      .cases-header .navbar-brand img { width: auto; max-height: 35px; }
+      .cases-header .navbar .navbar-nav .nav-link { color: var(--case-ink); }
+      .cases-header .navbar-toggler { border: 0; }
+      .cases-header .navbar-toggler-line { background-color: var(--case-ink); }
+      .cases-header .header-button .btn { color: var(--case-ink); border-color: #dbe1ea; }
+      .cases-hero { position: relative; display: flex; min-height: 390px; align-items: center; overflow: hidden; background-color: #182a49; background-image: url("https://craftohtml.themezaa.com/images/demo-it-business-case-studies-title-bg.jpg"); background-position: center; background-size: cover; background-repeat: no-repeat; }
+      .cases-hero::before { position: absolute; inset: 0; content: ""; background: linear-gradient(90deg,rgba(18,25,47,.88),rgba(18,25,47,.57) 58%,rgba(18,25,47,.33)); }
+      .cases-hero .container { position: relative; z-index: 1; padding-top: 45px; padding-bottom: 70px; }
+      .cases-hero .hero-kicker { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 17px; padding: 6px 16px; border: 1px solid rgba(255,255,255,.23); border-radius: 40px; color: #fff; background: rgba(255,255,255,.1); font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+      .cases-hero h1 { margin-bottom: 16px; color: #fff; font-size: clamp(2.5rem,5vw,4.2rem); line-height: 1.2; font-weight: 700; letter-spacing: -.04em; }
+      .cases-hero h1 span { color: #9fc8ff; }
+      .cases-hero p { max-width: 730px; margin: 0; color: rgba(255,255,255,.8); font-size: 17px; line-height: 1.8; }
+      .cases-hero .shape-image-animation { position: absolute; bottom: -1px; left: 0; z-index: 1; }
+      .cases-list { position: relative; padding: 24px 0 100px; background: linear-gradient(180deg,#f0f2f8 0%,#fff 300px); }
+      .cases-intro { max-width: 800px; margin: 0 auto 34px; text-align: center; }
+      .cases-intro .section-kicker { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 15px; padding: 5px 15px; border-radius: 40px; color: var(--case-blue); background: #e9f1ff; font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+      .cases-intro h2 { margin-bottom: 13px; color: var(--case-ink); font-size: clamp(1.9rem,3.3vw,2.8rem); line-height: 1.25; font-weight: 700; letter-spacing: -.04em; }
+      .cases-intro p { margin: 0; font-size: 15px; line-height: 1.8; }
+      .portfolio-filter { gap: 6px; margin-bottom: 32px; }
+      .portfolio-filter .nav { margin: 0; }
+      .portfolio-filter .nav a { display: inline-block; padding: 9px 16px; border-radius: 30px; color: #626775; font-size: 14px; text-decoration: none; transition: color .2s ease,background .2s ease; }
+      .portfolio-filter .nav.active a, .portfolio-filter .nav a[aria-pressed="true"] { color: #fff; background: var(--case-ink); }
+      .case-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; margin: 0; padding: 0; list-style: none; }
+      .case-grid-item[hidden] { display: none !important; }
+      .case-card { height: 100%; overflow: hidden; border: 1px solid #e8ebf1; border-radius: 7px; background: #fff; box-shadow: 0 8px 24px rgba(33,45,68,.045); transition: transform .25s ease,box-shadow .25s ease; }
+      .case-card:hover { transform: translateY(-5px); box-shadow: 0 19px 40px rgba(33,45,68,.13); }
+      .case-visual { position: relative; display: grid; min-height: 215px; overflow: hidden; place-items: center; isolation: isolate; background: linear-gradient(135deg,#173c79,#697de0); }
+      .case-visual .case-demo-image { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+      .case-visual::before { position: absolute; inset: 0; z-index: -1; background: linear-gradient(130deg,rgba(19,35,68,.68),rgba(19,35,68,.2)); content: ""; }
+      .case-visual::after { position: absolute; z-index: -1; width: 170px; height: 170px; border: 1px solid rgba(255,255,255,.32); border-radius: 50%; content: ""; transform: translate(105px,-30px); }
+      .case-visual .visual-icon { display: grid; width: 82px; height: 82px; place-items: center; border: 1px solid rgba(255,255,255,.38); border-radius: 24px; color: #fff; background: rgba(255,255,255,.13); box-shadow: 0 15px 30px rgba(17,27,56,.18); font-size: 38px; transform: rotate(-5deg); }
+      .case-visual .visual-label { position: absolute; right: 18px; bottom: 15px; left: 18px; color: rgba(255,255,255,.73); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-align: center; }
+      .case-visual .visual-orbit { position: absolute; top: 18px; left: 20px; width: 7px; height: 7px; border-radius: 50%; background: #a8d4ff; box-shadow: 63px 20px 0 rgba(255,255,255,.7), 121px -4px 0 rgba(143,209,255,.75), 200px 45px 0 rgba(255,255,255,.6), 280px 8px 0 rgba(143,209,255,.8); }
+      .case-visual.visual-finance { background: linear-gradient(135deg,#132f5a,#346fca); }
+      .case-visual.visual-insurance { background: linear-gradient(135deg,#273154,#785ec5); }
+      .case-visual.visual-government { background: linear-gradient(135deg,#064c87,#0c9cab); }
+      .case-visual.visual-data { min-height: 190px; background: linear-gradient(135deg,#272c4d,#4b63a9); }
+      .case-card-body { padding: 24px 25px 26px; }
+      .case-category { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 12px; color: var(--case-blue); font-size: 11px; font-weight: 700; letter-spacing: .06em; }
+      .case-card h3 { margin: 0 0 12px; color: var(--case-ink); font-size: 20px; line-height: 1.45; font-weight: 700; }
+      .case-card p { margin: 0; font-size: 13px; line-height: 1.85; }
+      .case-outcomes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; padding-top: 16px; border-top: 1px solid #e8ebf1; }
+      .case-outcomes span { padding: 6px 10px; border-radius: 4px; color: var(--case-ink); background: #f1f5fb; font-size: 11px; line-height: 1.4; }
+      .case-outcomes strong { color: var(--case-blue); }
+      .sync-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 17px; padding-top: 15px; border-top: 1px solid #e8ebf1; }
+      .sync-flow span { padding: 6px 8px; border: 1px solid #e2e8f1; border-radius: 4px; color: #444d5d; background: #f8f9fc; font-size: 10px; }
+      .sync-flow i { color: #8ba4c5; font-size: 10px; }
+      .project-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; margin: 17px 0 0; padding: 0; list-style: none; }
+      .project-list li { display: flex; align-items: flex-start; gap: 8px; padding: 10px 11px; border-radius: 5px; color: #414958; background: #f5f7fb; font-size: 11px; line-height: 1.5; }
+      .project-list i { margin-top: 2px; color: var(--case-blue); }
+      .case-cta { padding: 72px 0; color: rgba(255,255,255,.76); background: var(--case-ink); }
+      .case-cta h2 { margin: 10px 0 12px; color: #fff; font-size: clamp(1.9rem,3.4vw,2.65rem); font-weight: 700; }
+      .case-cta p { margin: 0; }
+      .about-footer { padding-top: 54px; background: #fff; }
+      .about-footer .footer-brand { max-width: 225px; height: auto; }
+      .about-footer .address { line-height: 1.9; }
+      @media (max-width: 991px) {
+        .cases-header .navbar { min-height: 72px; }
+        .cases-header .navbar-collapse { padding: 15px 0; }
+        .cases-header .header-button { display: none; }
+        .case-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+      }
+      @media (max-width: 767px) {
+        .cases-hero { min-height: 360px; }
+        .cases-hero .container { padding-top: 40px; padding-bottom: 64px; }
+        .cases-hero p { font-size: 15px; }
+        .cases-list { padding: 18px 0 72px; }
+        .portfolio-filter { flex-wrap: nowrap; justify-content: flex-start !important; overflow-x: auto; padding-bottom: 8px; }
+        .portfolio-filter .nav { flex: 0 0 auto; }
+        .case-grid { gap: 16px; }
+        .case-visual { min-height: 175px; }
+        .case-card-body { padding: 20px; }
+      }
+      @media (max-width: 575px) {
+        .case-grid { grid-template-columns: 1fr; }
+        .case-visual { min-height: 205px; }
+      }
+    </style>
+  </head>
+  <body class="cases-page" data-mobile-nav-style="full-screen-menu" data-mobile-nav-bg-color="#252840">
+    <header class="cases-header site-header no-sticky">
+      <nav class="navbar navbar-expand-lg header-transparent bg-transparent header-reverse glass-effect" data-header-hover="light">
+        <div class="container-fluid px-4 px-xl-5">
+          <a class="navbar-brand" href="index.html" aria-label="澳盛沅实首页"><img class="default-logo" src="./statics/images/logo.png" alt="澳盛沅实（香港）实业有限公司" /><img class="alt-logo" src="./statics/images/logo.png" alt="" /><img class="mobile-logo" src="./statics/images/logo.png" alt="" /></a>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#casesNav" aria-controls="casesNav" aria-expanded="false" aria-label="展开导航"><span class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span></button>
+          <div class="collapse navbar-collapse justify-content-center" id="casesNav">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a href="index.html" class="nav-link">首页</a></li>
+              <li class="nav-item"><a href="about.html" class="nav-link">公司介绍</a></li>
+              <li class="nav-item"><a href="services.html" class="nav-link">产品与服务</a></li>
+              <li class="nav-item active"><a href="cases.html" class="nav-link" aria-current="page">项目案例</a></li>
+              <li class="nav-item"><a href="contact.html" class="nav-link">联络我们</a></li>
+            </ul>
+          </div>
+          <div class="header-button d-none d-lg-flex"><a href="mailto:william_wxl@outlook.com" class="btn btn-large btn-rounded text-transform-none border-1">讨论项目 <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="cases-hero">
+        <div class="shape-image-animation p-0 w-100 d-none d-md-block"><svg xmlns="http://www.w3.org/2000/svg" width="3000" height="120" viewBox="0 180 2500 200" fill="#f0f2f8" aria-hidden="true"><path d="M0 250 C1200 400 1200 50 3000 250 L3000 550 L0 550Z"><animate attributeName="d" dur="5s" values="M0 250 C1200 400 1200 50 3000 250 L3000 550 L0 550Z;M0 250 C400 50 400 400 3000 250 L3000 550 L0 550Z;M0 250 C1200 400 1200 50 3000 250 L3000 550 L0 550Z" repeatCount="indefinite" /></path></svg></div>
+        <div class="container"><div class="row justify-content-center text-center"><div class="col-lg-9 col-xl-8"><span class="hero-kicker"><i class="bi bi-briefcase"></i> SELECTED PROJECTS</span><h1>项目案例<br /><span>让技术成果经得起业务检验。</span></h1><p>在金融运维、基础设施交付、政务云及数据治理等场景中，将技术方案转化为稳定、可持续的业务支撑。</p></div></div></div>
+      </section>
+
+      <section id="projects" class="cases-list">
+        <div class="container">
+          <div class="cases-intro"><span class="section-kicker"><i class="bi bi-grid-3x3-gap"></i> 项目实践</span><h2>跨行业项目经验与交付成果。</h2><p>按项目类型筛选案例，了解团队在系统稳定性、基础设施建设与数据应用方面的实践。</p></div>
+          <div class="row align-items-center mb-4"><div class="col-12 tab-style-04 text-center"><ul class="portfolio-filter nav nav-tabs justify-content-center border-0 fw-500" role="tablist" aria-label="按项目类型筛选">
+            <li class="nav active"><a href="#projects" role="tab" aria-pressed="true" data-filter="*">全部案例</a></li>
+            <li class="nav"><a href="#projects" role="tab" aria-pressed="false" data-filter=".ops">智能运维</a></li>
+            <li class="nav"><a href="#projects" role="tab" aria-pressed="false" data-filter=".infra">基础设施</a></li>
+            <li class="nav"><a href="#projects" role="tab" aria-pressed="false" data-filter=".government">政务云</a></li>
+            <li class="nav"><a href="#projects" role="tab" aria-pressed="false" data-filter=".data">数据治理</a></li>
+          </ul></div></div>
+
+          <ul class="case-grid" id="caseGrid">
+            <li class="case-grid-item ops">
+              <article class="case-card">
+                <div class="case-visual visual-finance" aria-hidden="true"><img class="case-demo-image" src="./statics/images/demo-it-business-portfolio-01.jpg" alt="" loading="lazy" /><span class="visual-orbit"></span><span class="visual-icon"><i class="bi bi-activity"></i></span><span class="visual-label">NATIONWIDE IT OPERATIONS</span></div>
+                <div class="case-card-body"><span class="case-category"><i class="bi bi-arrow-repeat"></i> 金融 · 智能运维</span><h3>金融公司全国业务运维保障</h3><p>客户总部位于上海，设备分布广、核心业务对稳定性要求高。采用现场驻场与远程技术支撑，基于 EasyOP 统一监控和自动化运维，并提供硬件更换、故障排查、上线保障及电源改造。</p><div class="case-outcomes"><span>系统可用性 <strong>99.99%</strong></span><span>响应效率提升 <strong>50%</strong></span><span>年均停机时长压缩 <strong>60%</strong></span></div></div>
+              </article>
+            </li>
+            <li class="case-grid-item infra">
+              <article class="case-card">
+                <div class="case-visual visual-insurance" aria-hidden="true"><img class="case-demo-image" src="./statics/images/demo-it-business-portfolio-02.jpg" alt="" loading="lazy" /><span class="visual-orbit"></span><span class="visual-icon"><i class="bi bi-diagram-3"></i></span><span class="visual-label">INFRASTRUCTURE DELIVERY</span></div>
+                <div class="case-card-body"><span class="case-category"><i class="bi bi-hdd-network"></i> 保险 · 基础设施交付</span><h3>某头部保险集团基础设施交付</h3><p>围绕基础设施交付和数据同步安排项目流程，简介中列出的关键环节包括任务拆分、全量同步、增量同步与数据一致性。</p><div class="sync-flow" aria-label="项目简介列出的流程环节"><span>任务拆分</span><i class="fa-solid fa-arrow-right"></i><span>全量同步</span><i class="fa-solid fa-arrow-right"></i><span>增量同步</span><i class="fa-solid fa-arrow-right"></i><span>数据一致</span></div></div>
+              </article>
+            </li>
+            <li class="case-grid-item government">
+              <article class="case-card">
+                <div class="case-visual visual-government" aria-hidden="true"><img class="case-demo-image" src="./statics/images/demo-it-business-portfolio-03.jpg" alt="" loading="lazy" /><span class="visual-orbit"></span><span class="visual-icon"><i class="bi bi-cloud-check"></i></span><span class="visual-label">GOVERNMENT CLOUD PLATFORM</span></div>
+                <div class="case-card-body"><span class="case-category"><i class="bi bi-building"></i> 政务 · 云平台</span><h3>嘉兴市政务云平台</h3><p>支撑政务基础设施与业务系统统一上云。采用双核心冗余架构构建弹性计算与存储资源池，配套多层级安全防护及现场上云和运维支持。</p><div class="case-outcomes"><span>平台可用性 <strong>≥99.95%</strong></span><span>IT 成本降低 <strong>30%+</strong></span><span>上云周期压缩 <strong>70%+</strong></span><span>政务信息安全三级认证</span></div></div>
+              </article>
+            </li>
+            <li class="case-grid-item data">
+              <article class="case-card">
+                <div class="case-visual visual-data" aria-hidden="true"><img class="case-demo-image" src="./statics/images/demo-it-business-portfolio-04.jpg" alt="" loading="lazy" /><span class="visual-orbit"></span><span class="visual-icon"><i class="bi bi-bar-chart-line"></i></span><span class="visual-label">DATA GOVERNANCE &amp; VISUALIZATION</span></div>
+                <div class="case-card-body"><span class="case-category"><i class="bi bi-bar-chart"></i> 数据治理 · 定制开发 · 可视化</span><h3>黑龙江省电子政务外网</h3></div>
+              </article>
+            </li>
+            <li class="case-grid-item data">
+              <article class="case-card">
+                <div class="case-visual visual-data" aria-hidden="true"><img class="case-demo-image" src="./statics/images/demo-it-business-portfolio-05.jpg" alt="" loading="lazy" /><span class="visual-orbit"></span><span class="visual-icon"><i class="bi bi-display"></i></span><span class="visual-label">DATA GOVERNANCE &amp; VISUALIZATION</span></div>
+                <div class="case-card-body"><span class="case-category"><i class="bi bi-bar-chart"></i> 数据治理 · 定制开发 · 可视化</span><h3>国家知识产权专利局数字大屏</h3></div>
+              </article>
+            </li>
+            <li class="case-grid-item data government">
+              <article class="case-card">
+                <div class="case-visual visual-government" aria-hidden="true"><img class="case-demo-image" src="./statics/images/demo-it-business-portfolio-06.jpg" alt="" loading="lazy" /><span class="visual-orbit"></span><span class="visual-icon"><i class="bi bi-bank"></i></span><span class="visual-label">DIGITAL GOVERNMENT</span></div>
+                <div class="case-card-body"><span class="case-category"><i class="bi bi-bar-chart"></i> 数字政府 · 数据治理</span><h3>吉林数字政府</h3></div>
+              </article>
+            </li>
+            <li class="case-grid-item data ops">
+              <article class="case-card">
+                <div class="case-visual visual-finance" aria-hidden="true"><img class="case-demo-image" src="./statics/images/demo-it-business-portfolio-07.jpg" alt="" loading="lazy" /><span class="visual-orbit"></span><span class="visual-icon"><i class="bi bi-speedometer2"></i></span><span class="visual-label">SMART OPERATIONS</span></div>
+                <div class="case-card-body"><span class="case-category"><i class="bi bi-bar-chart"></i> 智慧运维 · 数据服务</span><h3>中国经济资讯社智慧运维</h3></div>
+              </article>
+            </li>
+            <li class="case-grid-item data">
+              <article class="case-card">
+                <div class="case-visual visual-insurance" aria-hidden="true"><img class="case-demo-image" src="./statics/images/demo-it-business-portfolio-08.jpg" alt="" loading="lazy" /><span class="visual-orbit"></span><span class="visual-icon"><i class="bi bi-diagram-2"></i></span><span class="visual-label">SITUATIONAL VISUALIZATION</span></div>
+                <div class="case-card-body"><span class="case-category"><i class="bi bi-bar-chart"></i> 综合态势 · 可视化</span><h3>部队 LC 网系综合态势可视化</h3></div>
+              </article>
+            </li>
+            <li class="case-grid-item data ops">
+              <article class="case-card">
+                <div class="case-visual visual-government" aria-hidden="true"><img class="case-demo-image" src="./statics/images/demo-it-business-portfolio-09.jpg" alt="" loading="lazy" /><span class="visual-orbit"></span><span class="visual-icon"><i class="bi bi-hdd-stack"></i></span><span class="visual-label">UNIFIED OPERATIONS</span></div>
+                <div class="case-card-body"><span class="case-category"><i class="bi bi-bar-chart"></i> 统一运维 · 数据服务</span><h3>国网信通 IMOC 统一运维</h3></div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="case-cta"><div class="container"><div class="row align-items-center"><div class="col-lg-8 mb-4 mb-lg-0"><span class="text-uppercase fs-12 fw-700 ls-1px text-white opacity-7">LET’S BUILD WHAT’S NEXT</span><h2>正在规划类似项目？</h2><p>欢迎联系澳盛沅实团队，交流项目目标、技术环境与交付需求。</p></div><div class="col-lg-4 text-lg-end"><a href="mailto:william_wxl@outlook.com" class="btn btn-extra-large btn-switch-text btn-gradient-purple-pink btn-rounded"><span><span class="btn-double-text" data-text="联系业务团队">联系业务团队</span><span><i class="fa-regular fa-envelope"></i></span></span></a></div></div></div></section>
+    </main>
+
+    <footer class="about-footer footer-light">
+      <div class="container">
+        <div class="row pt-5 pb-4">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <a href="index.html" aria-label="澳盛沅实首页"><img class="footer-brand mb-3" src="./statics/images/logo.png" alt="澳盛沅实（香港）实业有限公司" /></a>
+            <p class="address">澳盛沅实（香港）实业有限公司<br />AOSHENG YUANSHI (HK) LIMITED</p>
+          </div>
+          <div class="col-6 col-lg-2 mb-4 mb-lg-0"><span class="fw-600 d-block text-dark-gray mb-3">快速导航</span><ul><li><a href="index.html">首页</a></li><li><a href="about.html">公司介绍</a></li><li><a href="services.html">产品与服务</a></li><li><a href="cases.html">项目案例</a></li><li><a href="contact.html">联络我们</a></li></ul></div>
+          <div class="col-6 col-lg-2 mb-4 mb-lg-0"><span class="fw-600 d-block text-dark-gray mb-3">核心业务</span><ul><li><a href="services.html#industry-solutions">AI智能体应用实施</a></li><li><a href="services.html#capabilities">办公软件分销</a></li><li><a href="services.html#industry-solutions">软件开发</a></li><li><a href="services.html#operations">运维外包</a></li></ul></div>
+          <div class="col-6 col-lg-4 mb-4 mb-lg-0"><span class="fw-600 d-block text-dark-gray mb-3">联系团队</span><ul><li><a href="mailto:william_wxl@outlook.com">william_wxl@outlook.com</a></li><li><a href="tel:+85246139100">+852 4613 9100</a></li><li>香港新界屯门建发街 4 号 Lane Up 7 楼 112 室</li><li><a href="https://ausys-soft.com" target="_blank" rel="noopener">ausys-soft.com</a></li></ul></div>
+        </div>
+        <div class="row border-top border-color-extra-medium-gray py-3">
+          <div class="col-12 d-flex align-items-center justify-content-between flex-wrap text-lg-start fs-14">
+            <p class="mb-0">© 2026 澳盛沅实 AOSHENG YUANSHI (HK) LIMITED. All rights reserved.</p>
+            <ul class="footer-navbar sm-lh-normal mb-0">
+              <li><a href="index.html" class="nav-link">首页</a></li>
+              <li><a href="about.html" class="nav-link">公司介绍</a></li>
+              <li><a href="services.html" class="nav-link">产品与服务</a></li>
+              <li><a href="cases.html" class="nav-link">项目案例</a></li>
+              <li><a href="contact.html" class="nav-link">联络我们</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="返回顶部"><span class="scroll-text">Top</span><span class="scroll-line"><span class="scroll-point"></span></span></a></div>
+    <script src="./statics/scripts/jquery.js?v=202610081950"></script>
+    <script src="./statics/scripts/vendors.min.js?v=202610081950"></script>
+    <script src="./statics/scripts/main.js?v=202610081950"></script>
+    <script>
+      document.querySelectorAll(".portfolio-filter [data-filter]").forEach(function (filterLink) {
+        filterLink.addEventListener("click", function (event) {
+          event.preventDefault();
+          var selector = filterLink.getAttribute("data-filter");
+          document.querySelectorAll(".portfolio-filter .nav").forEach(function (item) {
+            item.classList.toggle("active", item.contains(filterLink));
+          });
+          document.querySelectorAll(".portfolio-filter [data-filter]").forEach(function (link) {
+            link.setAttribute("aria-pressed", link === filterLink ? "true" : "false");
+          });
+          document.querySelectorAll(".case-grid-item").forEach(function (item) {
+            item.hidden = selector !== "*" && !item.matches(selector);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
